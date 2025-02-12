@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var minusOneButton: UIButton!
-    @IBOutlet weak var plusOneButton: UIButton!
-    @IBOutlet weak var nullButton: UIButton!
-    @IBOutlet weak var historyTextView: UITextView!
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var minusOneButton: UIButton!
+    @IBOutlet private weak var plusOneButton: UIButton!
+    @IBOutlet private weak var nullButton: UIButton!
+    @IBOutlet private weak var historyTextView: UITextView!
     
     private var counter: Int = 0
     
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func counterDidMinusOne() {
+    @IBAction private func counterDidMinusOne() {
         if counter == 0 {
             historyTextView.text += "\n\(giveDateTimeNow()): попытка уменьшить значение счетчика ниже 0"
         } else {
@@ -45,13 +45,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func counterDidPlusOne() {
+    @IBAction private func counterDidPlusOne() {
         counter += 1
         changeCounterLabel()
         historyTextView.text += "\n\(giveDateTimeNow()): значение изменено на +1"
     }
     
-    @IBAction func counterDidNull() {
+    @IBAction private func counterDidNull() {
         counter = 0
         changeCounterLabel()
         historyTextView.text += "\n\(giveDateTimeNow()): значение сброшено"
